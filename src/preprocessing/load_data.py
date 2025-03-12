@@ -22,8 +22,4 @@ def load_dataset(filepath: str = DATA_PATH) -> pd.DataFrame:
 
     df = pd.read_csv(filepath, names=column_names, sep=r"\s+", na_values="?")
 
-    df["speed_category"] = pd.cut(
-        df["acceleration"], 5, labels=range(5)
-    )
-
     return df
