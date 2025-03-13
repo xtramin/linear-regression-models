@@ -2,11 +2,7 @@ import os
 import pandas as pd
 
 
-DATA_PATH = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "../../data/auto-mpg.data")
-    )
-
-def load_dataset(filepath: str = DATA_PATH) -> pd.DataFrame:
+def load_dataset(filepath: str) -> pd.DataFrame:
 
     column_names = [
         "mpg",
