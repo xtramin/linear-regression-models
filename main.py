@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.metrics import r2_score
 
 DATA_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "./data/auto-mpg.data")
+    os.path.join(os.path.dirname(__file__), "data/auto-mpg.data")
 )
 
 if __name__ == "__main__":
