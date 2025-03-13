@@ -1,22 +1,33 @@
 import numpy as np
 
 
-class OrinaryLeastSquares:
-    def __init__(self, X, y):
-        self.X = X
-        self.y = y
-        self.observations, self.features = self.X.shape
+class OrdinaryLeastSquares:
+    def __init__(self):
+        self.X = None
+        self.y = None
+        self.observations = None
+        self.features = None
         self.beta = None
 
-        if self.X.shape[0] != self.y.shape[0]:
+    def fit(self, X, y):
+
+        self.X = X
+        self.y = y
+
+        self.observations, self.features = self.X.shape
+
+        if self.observations != self.y.shape[0]:
             raise ValueError("X and y must have the same number of observations.")
 
-    def calculate_beta(self):
         dot_product = self.X.T @ self.X
 
-        if np.linalg.matrix_rank(dot_product) < self.observations:
+        if np.linalg.matrix_rank(dot_product) < self.features:
             raise ValueError("X transpose X is not invertible.")
         
         self.beta = np.linalg.pinv(dot_product) @ self.X.T @ self.y
 
         return self.beta
+    
+    def predict(self, X):
+        y_pred = X @ self.beta
+        return y_pred
