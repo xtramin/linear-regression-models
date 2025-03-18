@@ -27,8 +27,9 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
 def remove_features(df: pd.DataFrame) -> pd.DataFrame:
     df.drop(
         columns=[
-            "cylinders",
-            "displacement",
+            # TODO these two features are strongly correlated with horsepower
+            # "cylinders",
+            # "displacement",
             "origin",
             "model_year",
             "car_name",
